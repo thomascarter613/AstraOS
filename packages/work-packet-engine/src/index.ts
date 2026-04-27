@@ -1,3 +1,5 @@
+export { renderWorkPacketMarkdown } from "./markdown";
+export type { WorkPacketMarkdownOptions } from "./markdown";
 export { diffWorkPackets } from "./diff";
 export type { WorkPacketDiffEntry, WorkPacketDiffKind, WorkPacketDiffResult } from "./diff";
 export { normalizeStringArray, normalizeWorkPacket } from "./normalization";
