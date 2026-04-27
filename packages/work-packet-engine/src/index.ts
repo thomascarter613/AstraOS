@@ -1,4 +1,9 @@
-export { checkDefinitionOfDone } from "./done";
+export type { WorkPacketDoneRule } from "./done";
+export {
+  checkDefinitionOfDone,
+  evaluateWorkPacketDoneRules,
+  WORK_PACKET_DONE_RULES,
+} from "./done";
 export { generateHandoffSummary } from "./handoff";
 export type {
   WorkPacketTransition,
