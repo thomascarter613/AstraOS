@@ -1,0 +1,65 @@
+schemaVersion: "0.1.0"
+id: "WP-RELEASE-001"
+title: "Prepare Astra v0.1 internal release"
+status: "ready"
+sdlcPhase: "release"
+roleMode: "release_engineer"
+scrumContext:
+  productGoal: "Prepare Astra for reliable internal use"
+  sprintGoal: "Define release readiness expectations"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Release-001"
+sourceArtifacts:
+  - "docs/product/implementation-slices.md"
+  - "docs/product/backlog.md"
+objective: "Prepare a verified internal release candidate for Astra v0.1."
+constraints:
+  - "Release preparation must not bypass verification."
+  - "Release notes must identify known limitations."
+assumptions:
+  - "The project is still pre-public and internally versioned."
+risks:
+  - "Incomplete release criteria could create false confidence."
+riskClass: "medium"
+acceptanceCriteria:
+  - "Release scope is listed."
+  - "Verification command passes."
+  - "Known limitations are documented."
+definitionOfReady:
+  - "Release scope is known."
+  - "Verification commands are defined."
+definitionOfDone:
+  - "Release checklist is complete."
+  - "Release notes are drafted."
+  - "Human release approval is required."
+allowedActions:
+  - "read_files"
+  - "run_tests"
+  - "run_typecheck"
+  - "run_lint"
+  - "produce_handoff"
+forbiddenActions:
+  - "deploy_production"
+  - "push_branch"
+  - "merge_pull_request"
+verificationPlan:
+  commands:
+    - "bun run verify"
+    - "bun run repo:contract"
+  requiredEvidence:
+    - "Repository verification passes"
+    - "Repository contract passes"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "list_risks"
+  - "list_assumptions"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/product/implementation-slices.md"

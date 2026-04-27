@@ -1,0 +1,58 @@
+schemaVersion: "0.1.0"
+id: "WP-IMPROVEMENT-001"
+title: "Improve the Work Packet authoring process"
+status: "ready"
+sdlcPhase: "continuous_improvement"
+roleMode: "scrum_facilitator"
+scrumContext:
+  productGoal: "Make Astra easier to use correctly"
+  sprintGoal: "Capture process improvements from early implementation"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Improvement-001"
+sourceArtifacts:
+  - "docs/product/implementation-slices.md"
+  - "docs/process/universal-workflow-protocol.md"
+objective: "Identify improvements to the Work Packet authoring and validation process after early implementation slices."
+constraints:
+  - "Improvement recommendations must be traceable to observed friction or failure."
+assumptions:
+  - "Early implementation slices have produced enough evidence to inspect."
+risks:
+  - "Process improvement may become too broad unless tied to specific evidence."
+riskClass: "low"
+acceptanceCriteria:
+  - "At least one process friction point is identified."
+  - "At least one concrete improvement action is proposed."
+  - "The recommendation is mapped to a future backlog item."
+definitionOfReady:
+  - "There is at least one completed slice to inspect."
+  - "Verification or implementation notes are available."
+definitionOfDone:
+  - "Improvement finding is documented."
+  - "Follow-up backlog item is proposed."
+allowedActions:
+  - "read_files"
+  - "produce_plan"
+  - "produce_handoff"
+forbiddenActions:
+  - "commit_changes"
+  - "deploy_production"
+  - "change_security_policy"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Improvement recommendation reviewed by human engineer"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "list_assumptions"
+  - "list_risks"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/product/implementation-slices.md"

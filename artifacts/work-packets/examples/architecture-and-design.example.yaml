@@ -1,0 +1,58 @@
+schemaVersion: "0.1.0"
+id: "WP-ARCHITECTURE-001"
+title: "Design Work Packet lifecycle transition rules"
+status: "ready"
+sdlcPhase: "architecture_and_design"
+roleMode: "technical_architect"
+scrumContext:
+  productGoal: "Make Work Packets governable through explicit lifecycle states"
+  sprintGoal: "Prepare lifecycle transition implementation"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Architecture-001"
+sourceArtifacts:
+  - "docs/domain/work-packet-lifecycle.md"
+objective: "Design the transition model for moving Work Packets between lifecycle states."
+constraints:
+  - "Lifecycle transitions must be explicit and testable."
+  - "Forbidden transitions must fail predictably."
+assumptions:
+  - "Transition history persistence can be deferred until a later slice."
+risks:
+  - "A permissive lifecycle could allow work to be marked done without evidence."
+riskClass: "high"
+acceptanceCriteria:
+  - "Allowed transitions are identified."
+  - "Forbidden transitions are identified."
+  - "Transition validation result shape is defined."
+definitionOfReady:
+  - "Lifecycle states are documented."
+  - "Transition examples exist."
+definitionOfDone:
+  - "Transition design can be implemented without changing the schema unexpectedly."
+allowedActions:
+  - "read_files"
+  - "produce_plan"
+  - "produce_handoff"
+forbiddenActions:
+  - "commit_changes"
+  - "deploy_production"
+  - "change_architecture_decision"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Design reviewed against lifecycle doctrine"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "map_acceptance_criteria"
+  - "list_risks"
+  - "list_assumptions"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/domain/work-packet-lifecycle.md"
