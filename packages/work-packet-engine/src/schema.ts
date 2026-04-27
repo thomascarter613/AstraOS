@@ -81,8 +81,8 @@ export function parseWorkPacket(input: unknown): ParsedWorkPacketResult {
   for (const field of WORK_PACKET_SCHEMA.requiredArrayFields) {
     const value = packet[field];
 
-    if (!isStringArray(value) || value.length === 0) {
-      pushIssue(issues, field, `Expected non-empty string array, received ${actualType(value)}.`);
+    if (!isStringArray(value)) {
+      pushIssue(issues, field, `Expected string array, received ${actualType(value)}.`);
     }
   }
 
