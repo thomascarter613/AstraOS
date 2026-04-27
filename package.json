@@ -1,0 +1,33 @@
+{
+  "name": "astra-sdlc-framework",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A process-aware AI SDLC and Scrum framework for governed software delivery.",
+  "packageManager": "bun@1.3.11",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "docs/*",
+    "infra/*",
+    "packages/*",
+    "services/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "build": "turbo run build --ui=stream --log-order=stream --output-logs=full",
+    "dev": "turbo run dev",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "bash tools/scripts/run-workspace-script.sh typecheck",
+    "test": "bash tools/scripts/run-workspace-script.sh test",
+    "verify": "bun run lint && bun run typecheck && bun run test",
+    "repo:contract": "bun test tools/repo-contract/src/repo-contract.test.ts",
+    "turbo:typecheck": "turbo run typecheck --ui=stream --log-order=stream --output-logs=full --concurrency=1 --no-daemon"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "latest",
+    "turbo": "latest",
+    "typescript": "latest",
+    "@types/bun": "latest"
+  }
+}
