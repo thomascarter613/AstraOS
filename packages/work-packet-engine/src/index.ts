@@ -1,7 +1,5 @@
-export { diffWorkPackets } from "./diff";
 export type { WorkPacketDiffEntry, WorkPacketDiffKind, WorkPacketDiffResult } from "./diff";
-export { normalizeStringArray, normalizeWorkPacket } from "./normalization";
-export type { WorkPacketNormalizationOptions } from "./normalization";
+export { diffWorkPackets } from "./diff";
 export type { WorkPacketDoneRule } from "./done";
 export {
   checkDefinitionOfDone,
@@ -21,6 +19,10 @@ export {
   transitionWorkPacket,
   WORK_PACKET_TRANSITION_MATRIX,
 } from "./lifecycle";
+export type { WorkPacketMarkdownOptions } from "./markdown";
+export { renderWorkPacketMarkdown } from "./markdown";
+export type { WorkPacketNormalizationOptions } from "./normalization";
+export { normalizeStringArray, normalizeWorkPacket } from "./normalization";
 export type { WorkPacketReadinessRule } from "./readiness";
 export {
   checkDefinitionOfReady,

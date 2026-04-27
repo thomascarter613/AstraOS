@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
-import { checkDefinitionOfReady } from "../readiness";
-import { parseWorkPacket } from "../schema";
 import { validWorkPacket } from "../fixtures";
 import { normalizeStringArray, normalizeWorkPacket } from "../normalization";
+import { checkDefinitionOfReady } from "../readiness";
+import { parseWorkPacket } from "../schema";
 
 describe("Work Packet normalization", () => {
   test("normalizes string arrays by trimming, removing blanks, and removing duplicates", () => {
@@ -70,9 +70,7 @@ describe("Work Packet normalization", () => {
     });
 
     expect(normalized.verificationPlan.commands).toEqual(["bun run verify"]);
-    expect(normalized.verificationPlan.requiredEvidence).toEqual([
-      "Full verification passes.",
-    ]);
+    expect(normalized.verificationPlan.requiredEvidence).toEqual(["Full verification passes."]);
   });
 
   test("normalizes metadata and allows explicit updatedAt override", () => {
