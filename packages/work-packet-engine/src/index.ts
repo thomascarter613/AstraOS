@@ -12,7 +12,12 @@ export {
   transitionWorkPacket,
   WORK_PACKET_TRANSITION_MATRIX,
 } from "./lifecycle";
-export { checkDefinitionOfReady } from "./readiness";
+export type { WorkPacketReadinessRule } from "./readiness";
+export {
+  checkDefinitionOfReady,
+  evaluateWorkPacketReadinessRules,
+  WORK_PACKET_READINESS_RULES,
+} from "./readiness";
 export type {
   RiskClass,
   RoleMode,
