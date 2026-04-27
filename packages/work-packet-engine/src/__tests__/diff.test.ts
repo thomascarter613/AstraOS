@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { validWorkPacket } from "../fixtures";
 import { diffWorkPackets } from "../diff";
+import { validWorkPacket } from "../fixtures";
+import type { WorkPacket } from "../types";
 
 describe("Work Packet diffing", () => {
   test("returns unchanged result for identical packets", () => {
@@ -47,9 +48,11 @@ describe("Work Packet diffing", () => {
   });
 
   test("detects changed arrays", () => {
+    const nextAcceptanceCriteria = [...validWorkPacket.acceptanceCriteria, "New criterion added."];
+
     const result = diffWorkPackets(validWorkPacket, {
       ...validWorkPacket,
-      acceptanceCriteria: [...validWorkPacket.acceptanceCriteria, "New criterion added."],
+      acceptanceCriteria: nextAcceptanceCriteria,
     });
 
     expect(result.changed).toBe(true);
@@ -58,20 +61,21 @@ describe("Work Packet diffing", () => {
         kind: "changed",
         path: "acceptanceCriteria",
         before: validWorkPacket.acceptanceCriteria,
-        after: [...validWorkPacket.acceptanceCriteria, "New criterion added."],
+        after: nextAcceptanceCriteria,
       },
     ]);
   });
 
   test("detects added optional nested fields", () => {
-    const before = {
+    const before: WorkPacket = {
       ...validWorkPacket,
       metadata: {
-        ...validWorkPacket.metadata,
+        owner: "human_engineer",
+        createdAt: "2026-04-27T00:00:00.000Z",
+        updatedAt: "2026-04-27T00:00:00.000Z",
+        relatedArtifacts: ["AUTH-014"],
       },
     };
-
-    delete before.metadata.source;
 
     const result = diffWorkPackets(before, validWorkPacket);
 
@@ -85,14 +89,15 @@ describe("Work Packet diffing", () => {
   });
 
   test("detects removed optional nested fields", () => {
-    const after = {
+    const after: WorkPacket = {
       ...validWorkPacket,
       metadata: {
-        ...validWorkPacket.metadata,
+        owner: "human_engineer",
+        createdAt: "2026-04-27T00:00:00.000Z",
+        updatedAt: "2026-04-27T00:00:00.000Z",
+        relatedArtifacts: ["AUTH-014"],
       },
     };
-
-    delete after.metadata.source;
 
     const result = diffWorkPackets(validWorkPacket, after);
 
@@ -115,17 +120,3 @@ describe("Work Packet diffing", () => {
     expect(result.entries.map((entry) => entry.path)).toEqual(["id", "title"]);
   });
 });
-```
-
-Potential TypeScript note: the `delete before.metadata.source` line may complain depending on exact optional property settings. If it does, replace that test object setup with explicit object construction:
-
-```ts
-const before = {
-  ...validWorkPacket,
-  metadata: {
-    owner: validWorkPacket.metadata.owner,
-    createdAt: validWorkPacket.metadata.createdAt,
-    updatedAt: validWorkPacket.metadata.updatedAt,
-    relatedArtifacts: validWorkPacket.metadata.relatedArtifacts,
-  },
-};
