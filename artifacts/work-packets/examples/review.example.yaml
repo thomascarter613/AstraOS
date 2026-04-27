@@ -1,0 +1,62 @@
+schemaVersion: "0.1.0"
+id: "WP-REVIEW-001"
+title: "Review Work Packet Engine schema changes"
+status: "ready"
+sdlcPhase: "review"
+roleMode: "reviewer"
+scrumContext:
+  productGoal: "Keep Work Packet Engine behavior safe and coherent"
+  sprintGoal: "Review schema-facing changes before merge"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Review-001"
+sourceArtifacts:
+  - "packages/work-packet-engine/src/types.ts"
+  - "packages/work-packet-engine/src/schema.ts"
+objective: "Review a Work Packet Engine change for schema correctness, test coverage, and documentation alignment."
+constraints:
+  - "Review must check whether examples, docs, and runtime validation agree."
+assumptions:
+  - "The change under review is available in the working tree or a pull request."
+risks:
+  - "Schema changes may break existing Work Packet artifacts."
+riskClass: "high"
+acceptanceCriteria:
+  - "Schema changes are identified."
+  - "Tests covering changed behavior are present."
+  - "Documentation impact is assessed."
+definitionOfReady:
+  - "Change set is available."
+  - "Relevant schema files are known."
+definitionOfDone:
+  - "Review findings are documented."
+  - "Blocking issues are clearly identified."
+allowedActions:
+  - "read_files"
+  - "run_tests"
+  - "run_typecheck"
+  - "run_lint"
+  - "produce_handoff"
+forbiddenActions:
+  - "merge_pull_request"
+  - "deploy_production"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Review findings produced"
+    - "Verification result recorded"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "map_acceptance_criteria"
+  - "list_risks"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "packages/work-packet-engine/src/schema.ts"

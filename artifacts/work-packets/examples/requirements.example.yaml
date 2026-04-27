@@ -1,0 +1,59 @@
+schemaVersion: "0.1.0"
+id: "WP-REQUIREMENTS-001"
+title: "Define requirements for Work Packet validation"
+status: "ready"
+sdlcPhase: "requirements"
+roleMode: "product_analyst"
+scrumContext:
+  productGoal: "Make AI-assisted work explicit and verifiable"
+  sprintGoal: "Stabilize Work Packet Engine behavior"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Requirements-001"
+sourceArtifacts:
+  - "docs/domain/work-packet-concept.md"
+  - "docs/domain/work-packet-schema.md"
+objective: "Define the requirements for validating Work Packets before execution."
+constraints:
+  - "Validation must distinguish schema validity from readiness and done status."
+assumptions:
+  - "Work Packets may be authored manually in YAML."
+risks:
+  - "Requirements may be too vague to produce reliable validation behavior."
+riskClass: "medium"
+acceptanceCriteria:
+  - "Required fields are identified."
+  - "Invalid packets produce structured validation issues."
+  - "Schema validity does not imply readiness."
+definitionOfReady:
+  - "The schema reference exists."
+  - "The validation objective is clear."
+definitionOfDone:
+  - "Requirements are documented."
+  - "Acceptance criteria are testable."
+allowedActions:
+  - "read_files"
+  - "produce_plan"
+  - "produce_handoff"
+forbiddenActions:
+  - "commit_changes"
+  - "deploy_production"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Requirements reviewed against schema reference"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "map_acceptance_criteria"
+  - "list_assumptions"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/domain/work-packet-schema.md"

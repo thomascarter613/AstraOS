@@ -1,0 +1,59 @@
+schemaVersion: "0.1.0"
+id: "WP-VERIFICATION-001"
+title: "Verify Work Packet examples against schema"
+status: "ready"
+sdlcPhase: "testing_and_verification"
+roleMode: "reviewer"
+scrumContext:
+  productGoal: "Ensure Work Packet examples remain trustworthy"
+  sprintGoal: "Add example validation coverage"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Verification-001"
+sourceArtifacts:
+  - "artifacts/work-packets/README.md"
+objective: "Verify that every canonical Work Packet example can be parsed and validated."
+constraints:
+  - "Tests must fail if an example no longer conforms to the schema."
+assumptions:
+  - "Canonical examples live under artifacts/work-packets/examples."
+risks:
+  - "Example tests may accidentally ignore missing files."
+riskClass: "medium"
+acceptanceCriteria:
+  - "The test suite checks the expected example files."
+  - "Each file is parsed through Work Packet file I/O."
+  - "Each parsed packet has the expected SDLC phase."
+definitionOfReady:
+  - "Canonical examples exist."
+  - "File I/O reader exists."
+definitionOfDone:
+  - "Example validation test passes."
+  - "Full repository verification passes."
+allowedActions:
+  - "read_files"
+  - "edit_files"
+  - "run_tests"
+  - "run_typecheck"
+  - "run_lint"
+forbiddenActions:
+  - "deploy_production"
+  - "modify_secrets"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Example validation tests pass"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "map_acceptance_criteria"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "artifacts/work-packets/README.md"

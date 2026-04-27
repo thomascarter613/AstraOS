@@ -1,0 +1,70 @@
+schemaVersion: "0.1.0"
+id: "WP-IMPLEMENTATION-001"
+title: "Implement canonical Work Packet examples"
+status: "ready"
+sdlcPhase: "implementation"
+roleMode: "pair_engineer"
+scrumContext:
+  productGoal: "Make Work Packet behavior concrete and testable"
+  sprintGoal: "Add schema-valid examples for every SDLC phase"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-022"
+sourceArtifacts:
+  - "docs/domain/work-packet-schema.md"
+  - "docs/product/implementation-slices.md"
+objective: "Add canonical YAML Work Packet examples and tests that validate them."
+constraints:
+  - "Examples must use the current schema version."
+  - "Examples must be valid YAML files."
+  - "Examples must be validated by automated tests."
+assumptions:
+  - "The Work Packet Engine file I/O functions are available."
+risks:
+  - "Examples may drift from the schema if they are not tested."
+riskClass: "medium"
+acceptanceCriteria:
+  - "One example exists for every SDLC phase."
+  - "Each example validates through the Work Packet Engine."
+  - "The examples index documents the purpose of each file."
+definitionOfReady:
+  - "Schema reference exists."
+  - "Examples directory exists."
+  - "File I/O support exists."
+definitionOfDone:
+  - "All examples validate."
+  - "Automated tests cover the examples directory."
+  - "Repository verification passes."
+allowedActions:
+  - "read_files"
+  - "edit_files"
+  - "run_tests"
+  - "run_typecheck"
+  - "run_lint"
+  - "produce_patch"
+  - "produce_handoff"
+forbiddenActions:
+  - "deploy_production"
+  - "modify_secrets"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+    - "bun run repo:contract"
+  requiredEvidence:
+    - "All Work Packet examples validate"
+    - "Full repository verification passes"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "map_acceptance_criteria"
+  - "list_risks"
+  - "list_assumptions"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "ASTRA-022"

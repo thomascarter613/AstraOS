@@ -1,0 +1,58 @@
+schemaVersion: "0.1.0"
+id: "WP-DISCOVERY-001"
+title: "Explore AI-assisted SDLC workflow gaps"
+status: "ready"
+sdlcPhase: "discovery"
+roleMode: "product_analyst"
+scrumContext:
+  productGoal: "Define a trustworthy AI-assisted software delivery framework"
+  sprintGoal: "Clarify the foundational problem space"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Discovery-001"
+sourceArtifacts:
+  - "docs/product/product-thesis.md"
+objective: "Identify the workflow gaps that make ordinary AI coding assistance unreliable inside real software delivery."
+constraints:
+  - "Do not prescribe implementation before the problem is clearly framed."
+assumptions:
+  - "The initial target user is a human engineer working with an AI assistant."
+risks:
+  - "Discovery may drift into premature solution design."
+riskClass: "medium"
+acceptanceCriteria:
+  - "Primary workflow gaps are listed."
+  - "At least one user need is identified."
+  - "Open discovery questions are documented."
+definitionOfReady:
+  - "The discovery objective is stated."
+  - "The target problem area is bounded."
+definitionOfDone:
+  - "Discovery findings are summarized."
+  - "Follow-up requirements work is identified."
+allowedActions:
+  - "read_files"
+  - "produce_plan"
+  - "produce_handoff"
+forbiddenActions:
+  - "commit_changes"
+  - "deploy_production"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Discovery summary reviewed by human engineer"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "list_assumptions"
+  - "list_risks"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/product/product-thesis.md"

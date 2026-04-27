@@ -1,0 +1,61 @@
+schemaVersion: "0.1.0"
+id: "WP-OPERATIONS-001"
+title: "Investigate failed local verification"
+status: "ready"
+sdlcPhase: "operations"
+roleMode: "operations_analyst"
+scrumContext:
+  productGoal: "Keep the Astra development workflow reliable"
+  sprintGoal: "Improve failure diagnosis during local verification"
+  sprint: "Foundation Sprint"
+  backlogItemId: "ASTRA-Operations-001"
+sourceArtifacts:
+  - "docs/process/universal-workflow-protocol.md"
+objective: "Investigate a failed local verification run and produce a clear remediation handoff."
+constraints:
+  - "Do not hide failed checks."
+  - "Do not mark the workspace healthy until verification passes."
+assumptions:
+  - "The failure is reproducible locally."
+risks:
+  - "A workaround may mask the underlying failure."
+riskClass: "medium"
+acceptanceCriteria:
+  - "The failing command is identified."
+  - "The failing workspace is identified if applicable."
+  - "A remediation path is documented."
+definitionOfReady:
+  - "Failure output is available."
+  - "Repository state is known."
+definitionOfDone:
+  - "Failure cause is summarized."
+  - "Verification is rerun or explicitly marked unverified."
+allowedActions:
+  - "read_files"
+  - "run_tests"
+  - "run_typecheck"
+  - "run_lint"
+  - "produce_handoff"
+forbiddenActions:
+  - "delete_data"
+  - "modify_secrets"
+  - "mark_work_done_without_verification"
+verificationPlan:
+  commands:
+    - "bun run verify"
+  requiredEvidence:
+    - "Verification result after remediation"
+  status: "planned"
+handoffRequirements:
+  - "summarize_changes"
+  - "list_risks"
+  - "list_assumptions"
+  - "list_unverified_items"
+  - "state_human_review_required"
+metadata:
+  owner: "human_engineer"
+  source: "canonical_example"
+  createdAt: "2026-04-27T00:00:00.000Z"
+  updatedAt: "2026-04-27T00:00:00.000Z"
+  relatedArtifacts:
+    - "docs/process/universal-workflow-protocol.md"
