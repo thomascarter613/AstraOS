@@ -1,3 +1,5 @@
+export { normalizeStringArray, normalizeWorkPacket } from "./normalization";
+export type { WorkPacketNormalizationOptions } from "./normalization";
 export type { WorkPacketDoneRule } from "./done";
 export {
   checkDefinitionOfDone,
