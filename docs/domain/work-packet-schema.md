@@ -1,4 +1,3 @@
-
 # Work Packet Schema Reference
 
 ## Status

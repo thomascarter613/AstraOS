@@ -1,4 +1,3 @@
-
 # Artifact Taxonomy
 
 ## Status

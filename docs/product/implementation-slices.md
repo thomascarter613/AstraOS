@@ -1,4 +1,3 @@
-
 # Astra Implementation Slices
 
 ## Status

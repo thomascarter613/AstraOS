@@ -1,4 +1,3 @@
-
 # Astra Domain Model Overview
 
 ## Status

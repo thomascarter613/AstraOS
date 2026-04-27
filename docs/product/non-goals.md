@@ -1,4 +1,3 @@
-
 # Astra Non-Goals
 
 ## Status

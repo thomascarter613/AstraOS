@@ -1,4 +1,3 @@
-
 # Universal Astra Workflow Protocol
 
 ## Status

@@ -1,4 +1,3 @@
-
 # Astra SDLC Framework — Product Thesis
 
 ## Status

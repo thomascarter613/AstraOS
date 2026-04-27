@@ -1,4 +1,3 @@
-
 # Human/AI Authority Model
 
 ## Status
