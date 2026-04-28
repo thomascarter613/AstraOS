@@ -12,17 +12,24 @@ PFD-1103 — CLI guide
 
 This guide explains how to use the Astra command-line interface.
 
-At this stage, the CLI only supports help and version commands. Future slices will expand it with Work Packet commands.
+~~At this stage, the CLI only supports help and version commands. Future slices will expand it with Work Packet commands.~~ (270420261859)
+
+
+The CLI is the user-facing shell for local Astra workflows. It should parse commands, call package APIs, format output, and return deterministic exit codes.
+
+The CLI should not duplicate domain logic from packages.
 
 ## Current Commands
 
-The initial CLI supports:
+The CLI currently supports:
 
 ```bash
+astra
 astra --help
 astra help
 astra --version
 astra version
+astra work-packet validate <file>
 ````
 
 Empty arguments also show help.
@@ -73,6 +80,40 @@ Expected behavior:
 - exits with code 0
 - prints the Astra CLI version
 ```
+
+## Work Packet Validation
+
+Use `work-packet validate` to validate a Work Packet file.
+
+```bash
+astra work-packet validate artifacts/work-packets/examples/implementation.example.yaml
+```
+
+Supported file extensions:
+
+```text
+.json
+.yaml
+.yml
+```
+
+Expected behavior for a valid packet:
+
+```text
+- exits with code 0
+- prints that the Work Packet is valid
+- prints basic packet metadata
+```
+
+Expected behavior for an invalid packet:
+
+```text
+- exits with a nonzero validation error code
+- prints that the Work Packet is invalid
+- prints validation issues
+```
+
+The validation command uses the Work Packet Engine. The CLI does not duplicate schema validation logic.
 
 ## Unknown Commands
 

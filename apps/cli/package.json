@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "bin": {
+    "astra": "./src/index.ts"
+  },
+  "dependencies": {
+    "@astra/work-packet-engine": "workspace:*"
+  },
   "scripts": {
     "dev": "bun run src/index.ts",
     "build": "tsc -p tsconfig.json",

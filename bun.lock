@@ -22,6 +22,12 @@
     "apps/cli": {
       "name": "@astra/cli",
       "version": "0.1.0",
+      "bin": {
+        "astra": "./src/index.ts",
+      },
+      "dependencies": {
+        "@astra/work-packet-engine": "workspace:*",
+      },
     },
     "apps/docs": {
       "name": "@astra/docs",
