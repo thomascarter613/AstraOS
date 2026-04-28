@@ -1,3 +1,11 @@
+export {
+  RISK_CLASSES,
+  ROLE_MODES,
+  SDLC_PHASES,
+  VERIFICATION_STATUSES,
+  WORK_PACKET_SCHEMA_VERSION,
+  WORK_PACKET_STATUSES,
+} from "./constants";
 export type { WorkPacketDiffEntry, WorkPacketDiffKind, WorkPacketDiffResult } from "./diff";
 export { diffWorkPackets } from "./diff";
 export type { WorkPacketDoneRule } from "./done";
@@ -6,7 +14,17 @@ export {
   evaluateWorkPacketDoneRules,
   WORK_PACKET_DONE_RULES,
 } from "./done";
+
+export { invalidWorkPacket, validWorkPacket } from "./fixtures";
+
 export { generateHandoffSummary } from "./handoff";
+export type { WorkPacketFileFormat, WorkPacketReadResult, WorkPacketWriteOptions } from "./io";
+export {
+  parseWorkPacketContent,
+  readWorkPacketFile,
+  serializeWorkPacket,
+  writeWorkPacketFile,
+} from "./io";
 export type {
   WorkPacketTransition,
   WorkPacketTransitionRequest,
@@ -29,15 +47,23 @@ export {
   evaluateWorkPacketReadinessRules,
   WORK_PACKET_READINESS_RULES,
 } from "./readiness";
+
+export { parseWorkPacket, WORK_PACKET_SCHEMA } from "./schema";
+
 export type {
+  ParsedWorkPacketResult,
   RiskClass,
   RoleMode,
   ScrumContext,
   SdlcPhase,
+  ValidationIssue,
+  ValidationResult,
   VerificationPlan,
   VerificationStatus,
   WorkPacket,
+  WorkPacketMetadata,
+  WorkPacketSchemaVersion,
   WorkPacketStatus,
 } from "./types";
-export type { ValidationIssue, ValidationResult } from "./validation";
+
 export { validateWorkPacket } from "./validation";
